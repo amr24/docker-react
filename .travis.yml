@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t amr123 -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true amr123 npm run test
